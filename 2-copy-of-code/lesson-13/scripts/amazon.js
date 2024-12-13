@@ -73,7 +73,7 @@ document.querySelectorAll('.js-add-to-cart')
         matchingItem.quantity += 1;
       } else {
         cart.push({
-          productId: productId,
+          productId,
           quantity: 1
         });
       }
