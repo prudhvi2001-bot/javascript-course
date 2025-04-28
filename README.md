@@ -181,3 +181,89 @@ const euroToUsd = 1.1;
 // console.log(max);
 
 movements.filter(mov => mov > 0).map(mov => mov * euroToUsd).reduce((acc, mov) => acc+mov, 0);
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+const breeds = [
+  {
+    breed: 'German Shepherd',
+    averageWeight: 32,
+    activities: ['fetch', 'swimming'],
+  },
+  {
+    breed: 'Dalmatian',
+    averageWeight: 24,
+    activities: ['running', 'fetch', 'agility'],
+  },
+  {
+    breed: 'Labrador',
+    averageWeight: 28,
+    activities: ['swimming', 'fetch'],
+  },
+  {
+    breed: 'Beagle',
+    averageWeight: 12,
+    activities: ['digging', 'fetch'],
+  },
+  {
+    breed: 'Husky',
+    averageWeight: 26,
+    activities: ['running', 'agility', 'swimming'],
+  },
+  {
+    breed: 'Bulldog',
+    averageWeight: 36,
+    activities: ['sleeping'],
+  },
+  {
+    breed: 'Poodle',
+    averageWeight: 18,
+    activities: ['agility', 'fetch'],
+  },
+];
+
+const huskyWeight = breeds.find(breed => breed.breed === 'Husky').averageWeight; 
+console.log(huskyWeight);
+
+const dogBothActivities = breeds.find(breed => breed.activities.includes('fetch') && breed.activities.includes('running')).breed;
+console.log(dogBothActivities);
+
+const allActivities = breeds.flatMap(breed => breed.activities)
+console.log(allActivities);
+
+const allActivities2 = [...new Set(breeds.map(breed => breed.activities).flat())]
+console.log(allActivities2)
+
+const swimmingAdjacent = [...new Set(breeds.filter(breed => breed.activities.includes("swimming")).flatMap(breed => breed.activities).filter(activity => activity !== 'swimming'))]
+
+console.log(swimmingAdjacent)
+
+
+const avgweight = breeds.every(breed => breed.averageWeight >= 10)
+console.log(avgweight)
+
+
+console.log(breeds.some(breed => breed.activities.length >= 3))
+
+// Bounes
+
+const fetchBreeds = breeds.filter(breed => breed.activities.includes('fetch')).map(breed => breed.averageWeight).reduce((acc,weight) =>{
+  if(acc > weight) return acc;
+  else return weight
+}weight[0]); 
+
+console.log(fetchBreeds)
+
+const heavyweinghtdog = Math.max(...fetchBreeds)
+console.log(heavyweinghtdog)
+
+
+
+reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
